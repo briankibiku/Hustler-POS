@@ -18,6 +18,9 @@ class HomePageActionCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, routeName);
+        // ScaffoldMessenger.of(context)
+        //   ..hideCurrentSnackBar()
+        //   ..showSnackBar(SnackBar(content: Text('data'), duration: Duration(seconds: 2),));
       },
       child: Container(
         height: 130,
@@ -55,43 +58,43 @@ List<HomePageActions> homePageActions = [
   HomePageActions(
       actionName: viewSaleString,
       actionIconURL: salesSVGString,
-      actionRoute: Routes.homePage),
+      actionRoute: Routes.comingSoonPage),
   HomePageActions(
       actionName: addStockString,
       actionIconURL: addStockSVGString,
-      actionRoute: Routes.homePage),
+      actionRoute: Routes.addStock),
   HomePageActions(
       actionName: viewStockString,
       actionIconURL: addStockSVGString,
-      actionRoute: Routes.homePage),
+      actionRoute: Routes.viewStock),
   HomePageActions(
       actionName: addExpenseString,
       actionIconURL: expenseSVGString,
-      actionRoute: Routes.homePage),
+      actionRoute: Routes.comingSoonPage),
   HomePageActions(
       actionName: viewExpenseString,
       actionIconURL: expenseSVGString,
-      actionRoute: Routes.homePage),
+      actionRoute: Routes.comingSoonPage),
   HomePageActions(
-      actionName: manageSuppliersString,
+      actionName: suppliersString,
       actionIconURL: manageSuppliersSVGString,
-      actionRoute: Routes.homePage),
+      actionRoute: Routes.manageSuppliersPage),
   HomePageActions(
       actionName: customersString,
       actionIconURL: customerSVGString,
-      actionRoute: Routes.homePage),
+      actionRoute: Routes.manageCustomersPage),
   HomePageActions(
       actionName: saleByProductString,
       actionIconURL: reportSVGString,
-      actionRoute: Routes.homePage),
+      actionRoute: Routes.comingSoonPage),
   HomePageActions(
       actionName: pandLString,
       actionIconURL: reportSVGString,
-      actionRoute: Routes.homePage),
+      actionRoute: Routes.comingSoonPage),
   HomePageActions(
-      actionName: addProductDescription,
+      actionName: productsString,
       actionIconURL: desriptionSVGString,
-      actionRoute: Routes.homePage)
+      actionRoute: Routes.manageProductsPage)
 ];
 
 class HomePageActions {

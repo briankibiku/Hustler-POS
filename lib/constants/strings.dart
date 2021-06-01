@@ -1,7 +1,8 @@
 // Login Strings
 const String loginString = 'Login';
+const String loginButtonString = 'LOGIN';
 const String signUpString = 'Sign Up';
-const String completeSignUpString = 'Complete SignUp';
+const String completeSignUpString = 'COMPLETE SIGNUP';
 const String accountExistsString = 'Already have an account?';
 const String shopNameString = 'Shop Name/ID';
 const String passwordString = 'Password';
@@ -35,9 +36,12 @@ const String viewSaleString = 'View Sales';
 const String addStockString = 'Add Stock';
 const String addExpenseString = 'Add Expense';
 const String viewStockString = 'View Stock';
-const String manageSuppliersString = 'Manage Suppliers';
+const String suppliersString = 'Suppliers';
 const String customersString = 'Customers';
 const String viewExpenseString = 'View Expenses';
 const String saleByProductString = 'Sale by Company';
 const String pandLString = 'P&L';
-const String addProductDescription = 'Add Product Desc';
+const String productsString = 'Products';
+const String fillAllFieldsWarning =
+    'Make sure all fields are filled before saving';
+const String savedSuccessfullyMessage = 'Saved successfully...';

@@ -14,15 +14,18 @@ class CustomInputLabel extends StatelessWidget {
 }
 
 class Bold15InputLabel extends StatelessWidget {
-  const Bold15InputLabel({required this.labelString});
+  const Bold15InputLabel({required this.labelString, this.textColor});
   final String labelString;
+  final Color? textColor;
   @override
   Widget build(BuildContext context) {
     return Text(
       labelString,
       textAlign: TextAlign.right,
       style: TextStyle(
-          color: Colors.black87, fontSize: 15, fontWeight: FontWeight.w600),
+          color: textColor ?? Colors.black87,
+          fontSize: 15,
+          fontWeight: FontWeight.w600),
     );
   }
 }

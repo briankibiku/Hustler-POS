@@ -6,7 +6,6 @@ import 'package:hustlerpos/constants/strings.dart';
 import 'package:hustlerpos/routes.dart';
 import 'package:hustlerpos/shared/input_widgets/custom_text_form_field.dart';
 import 'package:hustlerpos/shared/labels/custom_input_label.dart';
-import 'package:flutter_otp/flutter_otp.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({this.signUpPassWordController});
@@ -17,7 +16,6 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  FlutterOtp flutterOtp = FlutterOtp();
 
   @override
   Widget build(BuildContext context) {
@@ -102,8 +100,6 @@ class _SignUpPageState extends State<SignUpPage> {
                                   BorderRadius.all(Radius.circular(5)),
                               side: BorderSide(color: primaryColor)),
                           onPressed: () async {
-                            flutterOtp.generateOtp();
-                            flutterOtp.sendOtp('+254724609783');
                           },
                           child: Text(sendOTP,
                               style: TextStyle(color: primaryColor)),

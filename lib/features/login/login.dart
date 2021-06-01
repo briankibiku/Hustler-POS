@@ -99,7 +99,7 @@ class LoginPage extends StatelessWidget {
                 Navigator.pushNamed(context, Routes.homePage);
               },
               child: Text(
-                loginString,
+                loginButtonString,
                 style: TextStyle(color: Colors.white),
               ),
             )

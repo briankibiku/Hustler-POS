@@ -2,40 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:hustlerpos/constants/colors.dart';
 import 'package:hustlerpos/constants/numbers.dart';
 import 'package:hustlerpos/constants/sizing.dart';
-import 'package:hustlerpos/routes.dart';
 import 'package:hustlerpos/shared/input_widgets/custom_text_form_field.dart';
 import 'package:hustlerpos/shared/labels/custom_input_label.dart';
 
-class MakeSalePage extends StatefulWidget {
+class AddStockPage extends StatefulWidget {
   @override
-  _MakeSalePageState createState() => _MakeSalePageState();
+  _AddStockPageState createState() => _AddStockPageState();
 }
 
-class _MakeSalePageState extends State<MakeSalePage> {
+class _AddStockPageState extends State<AddStockPage> {
   TextEditingController? productNameController;
   TextEditingController? customerNameController;
   TextEditingController? customerContactController;
   String? _selectedProduct = 'Select Product';
-  String? _selectedQuantity = '1';
+  String? _selectedSupplier = 'Select supplier';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
         backgroundColor: primaryColor,
-        title: Text('Make Sale'),
+        title: Text('Add Stock'),
         centerTitle: true,
       ),
       body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(0),
-            topRight: Radius.circular(0),
-          ),
-        ),
+        color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: ListView(
@@ -76,13 +67,48 @@ class _MakeSalePageState extends State<MakeSalePage> {
                 labelString: 'Quantity *',
               ),
               smallVerticalSizedBox,
+              CustomTextFormField(
+                keyBoardType: TextInputType.number,
+                customController: customerContactController,
+              ),
+              mediumVerticalSizedBox,
+              CustomInputLabel(
+                labelString: 'Buying Price *',
+              ),
+              smallVerticalSizedBox,
+              CustomTextFormField(
+                keyBoardType: TextInputType.number,
+                customController: customerContactController,
+              ),
+              mediumVerticalSizedBox,
+              CustomInputLabel(
+                labelString: 'Selling Price *',
+              ),
+              smallVerticalSizedBox,
+              CustomTextFormField(
+                keyBoardType: TextInputType.number,
+                customController: customerContactController,
+              ),
+              mediumVerticalSizedBox,
+              CustomInputLabel(
+                labelString: 'Product Description *',
+              ),
+              smallVerticalSizedBox,
+              CustomTextFormField(
+                customController: customerContactController,
+              ),
+              mediumVerticalSizedBox,
+              CustomInputLabel(
+                labelString: 'Supplier Name',
+              ),
+              smallVerticalSizedBox,
               Container(
                 height: 45,
                 width: double.infinity,
                 color: fadedPrimaryColor,
                 padding: EdgeInsets.all(10),
                 child: DropdownButton<String>(
-                  value: _selectedQuantity,
+                  value: _selectedSupplier,
                   icon: const Icon(Icons.arrow_drop_down),
                   iconSize: 24,
                   elevation: 16,
@@ -91,10 +117,10 @@ class _MakeSalePageState extends State<MakeSalePage> {
                   ),
                   onChanged: (String? newValue) {
                     setState(() {
-                      _selectedQuantity = newValue!;
+                      _selectedSupplier = newValue!;
                     });
                   },
-                  items: quantityList
+                  items: suppliersList
                       .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -103,23 +129,6 @@ class _MakeSalePageState extends State<MakeSalePage> {
                   }).toList(),
                 ),
               ),
-              mediumVerticalSizedBox,
-              CustomInputLabel(
-                labelString: 'Customer Name',
-              ),
-              smallVerticalSizedBox,
-              CustomTextFormField(
-                customController: customerNameController,
-              ),
-              mediumVerticalSizedBox,
-              CustomInputLabel(
-                labelString: 'Customer Contact',
-              ),
-              smallVerticalSizedBox,
-              CustomTextFormField(
-                customController: customerContactController,
-              ),
-              mediumVerticalSizedBox,
               mediumVerticalSizedBox,
               Bold15InputLabel(
                 labelString: 'Unit Price 2400',
@@ -136,7 +145,7 @@ class _MakeSalePageState extends State<MakeSalePage> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(5))),
                 onPressed: () {
-                  Navigator.pushNamed(context, Routes.homePage);
+                  // add stock save fucntion
                 },
                 child: Text(
                   'SAVE',
@@ -155,8 +164,16 @@ List<String> productsList = <String>[
   'Select Product',
   'Bidco S&W',
   'FC S&W',
-  'Jubilee S&W',
-  'Farvet S&W'
+  'Farvet S&W 50KG',
+  'Farvet S&W 70KG',
+  'Jubilee S&W'
+];
+
+List<String> suppliersList = [
+  'Select supplier',
+  'Jubilee Feeds',
+  'Preshama Feeds',
+  'Farmers Choice',
 ];
 
 List<String> quantityList = <String>[
